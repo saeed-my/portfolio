@@ -1,0 +1,101 @@
+.contact {
+  padding: 8rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(184, 255, 87, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contact-tag {
+  justify-content: center;
+}
+
+.contact-title {
+  font-family: var(--font-display);
+  font-size: clamp(60px, 10vw, 120px);
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.contact-sub {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 3rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+}
+
+.contact-email {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 4vw, 48px);
+  color: var(--green);
+  letter-spacing: 0.04em;
+  display: block;
+  transition: opacity 0.2s;
+  /* allow long emails to wrap */
+  word-break: break-all;
+}
+
+.contact-email:hover {
+  opacity: 0.7;
+}
+
+.contact-links {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.contact-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.contact-link:hover {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 5rem 1.25rem;
+  }
+
+  .contact-title {
+    /* 10vw is ~37px on 375px screen, fine — but raise the floor slightly */
+    font-size: clamp(64px, 16vw, 120px);
+  }
+
+  .contact-sub {
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+  }
+
+  .contact-email {
+    /* 4vw too small on mobile */
+    font-size: clamp(22px, 6vw, 48px);
+  }
+
+  .contact-links {
+    gap: 1.5rem;
+  }
+}

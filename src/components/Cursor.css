@@ -1,0 +1,36 @@
+.cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: var(--green);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.15s, height 0.15s, opacity 0.15s;
+  mix-blend-mode: difference;
+}
+
+.cursor.big {
+  width: 40px;
+  height: 40px;
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(184, 255, 87, 0.35);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+}
+
+/* hide on touch screens */
+@media (pointer: coarse) {
+  .cursor,
+  .cursor-trail {
+    display: none;
+  }
+}

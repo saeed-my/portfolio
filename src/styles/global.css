@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Syne:wght@400;600;700;800&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green: #b8ff57;
+  --dark: #080808;
+  --dark2: #0f0f0f;
+  --dark3: #171717;
+  --border: rgba(255, 255, 255, 0.06);
+  --text: #ededed;
+  --muted: #666;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Syne', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--dark);
+  color: var(--text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* restore normal cursor on touch devices */
+@media (pointer: coarse) {
+  body { cursor: auto; }
+  a    { cursor: auto; }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: none;
+}
+
+/* ── Shared Section Styles ── */
+.section {
+  padding: 8rem 3rem;
+}
+
+.section-tag {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 3.5rem;
+}
+
+.section-tag::before {
+  content: '';
+  width: 36px;
+  height: 1px;
+  background: var(--green);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7vw, 90px);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  margin-bottom: 4rem;
+}
+
+/* ── Shared Button Styles ── */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 2.2rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  background: var(--green);
+  color: var(--dark);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: none;
+}
+
+.btn:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0 rgba(184, 255, 87, 0.25);
+}
+
+.btn-ghost {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+  cursor: none;
+}
+
+.btn-ghost:hover {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+/* ── Scroll Reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Shared Animations ── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .section {
+    padding: 5rem 1.25rem;
+  }
+
+  .section-tag {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-title {
+    margin-bottom: 2.5rem;
+  }
+
+  .btn,
+  .btn-ghost {
+    cursor: auto;
+  }
+}

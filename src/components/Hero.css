@@ -1,0 +1,152 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 3rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-ghost {
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: clamp(130px, 19vw, 260px);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(184, 255, 87, 0.045);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.02em;
+  animation: ghostFloat 9s ease-in-out infinite;
+}
+
+@keyframes ghostFloat {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50%       { transform: translate(-50%, -50%) translateY(-18px); }
+}
+
+.hero-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--green);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  animation: slideUp 0.7s forwards 0.1s;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(70px, 12vw, 150px);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  opacity: 0;
+  animation: slideUp 0.7s forwards 0.25s;
+}
+
+.hero-name em {
+  font-style: normal;
+  color: var(--green);
+  display: block;
+}
+
+.hero-tagline {
+  max-width: 480px;
+  margin-top: 2rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+  opacity: 0;
+  animation: slideUp 0.7s forwards 0.4s;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 3rem;
+  opacity: 0;
+  animation: slideUp 0.7s forwards 0.55s;
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  right: 3rem;
+  bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  opacity: 0;
+  animation: slideUp 0.7s forwards 0.8s;
+}
+
+.hero-scroll-hint span {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  writing-mode: vertical-rl;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 55px;
+  background: linear-gradient(to bottom, var(--green), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.25; }
+  50%       { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 0 1.25rem 4rem;
+    /* push content lower so nav doesn't overlap */
+    padding-top: 5rem;
+    justify-content: flex-end;
+  }
+
+  .hero-ghost {
+    /* scale down and clip cleanly */
+    font-size: clamp(72px, 28vw, 130px);
+    top: 30%;
+    left: 50%;
+    opacity: 0.6;
+  }
+
+  .hero-tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-name {
+    /* clamp already handles size, just tighten spacing */
+    font-size: clamp(68px, 18vw, 120px);
+  }
+
+  .hero-tagline {
+    font-size: 0.95rem;
+    margin-top: 1.25rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  /* hide scroll hint on mobile — not useful on touch */
+  .hero-scroll-hint {
+    display: none;
+  }
+}
