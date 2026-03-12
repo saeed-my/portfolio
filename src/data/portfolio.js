@@ -27,7 +27,7 @@ export const PROJECTS = [
     desc: "A dice game where players roll and hold dice to match all to the same number; includes timer and roll tracking.",
     stack: ["React", "CSS", "javascript", "REST APIs"],
     color: "#57e5ff",
-    link: "#https://tenzies-game-omega-nine.vercel.app",
+    link: "https://tenzies-game-omega-nine.vercel.app",
   },
   {
     id: 3,
